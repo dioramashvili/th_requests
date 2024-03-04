@@ -6,11 +6,13 @@ import threading
 
 base_url = 'https://dummyjson.com/products'
 
+
 def send_request_and_store_data(url, result_queue):
     response = requests.get(url)
     data = response.json()
 
     result_queue.put(data)
+
 
 result_queue = queue.Queue()
 file_lock = threading.Lock()
